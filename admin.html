@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin · MANKKDEV Control Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+body::before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(900px 500px at 85% -10%,rgba(212,167,44,.13),transparent 60%),radial-gradient(600px 400px at -10% 110%,rgba(212,167,44,.07),transparent 60%)}
+</style>
+</head>
+<body class="min-h-screen">
+
+<section id="login" style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1.2rem">
+  <form id="loginForm" class="panel" style="width:100%;max-width:420px;padding:2rem;display:flex;flex-direction:column;gap:1.2rem">
+    <div class="logo-frame" style="margin:0 auto;width:150px"><img src="/logo.png" alt="MANKKDEV" style="width:100%;border-radius:8px;display:block"></div>
+    <div style="text-align:center">
+      <h1 class="brand gold-text" style="font-size:1.9rem;font-weight:700;margin:0">Super Admin</h1>
+      <p style="font-size:.9rem;color:#8f8567;margin-top:.3rem">Login khusus MANKKDEV. Bukan reseller? <a href="/reseller" style="color:#d4a72c">Masuk di sini</a>.</p>
+    </div>
+    <div><label for="lu">Username</label><input id="lu" class="input" autocomplete="username" required></div>
+    <div><label for="lp">Password</label><input id="lp" type="password" class="input" autocomplete="current-password" required></div>
+    <p id="loginErr" class="hidden" style="color:#ff8c8c;font-size:.9rem"></p>
+    <button class="btn-gold">Masuk</button>
+  </form>
+</section>
+
+<div id="app" class="hidden" style="min-height:100vh">
+  <div style="display:flex;min-height:100vh">
+    <header id="topbar" style="display:none;position:sticky;top:0;background:rgba(0,0,0,.9);backdrop-filter:blur(6px);border-bottom:1px solid #3a2f14;padding:.7rem 1rem;align-items:center;justify-content:space-between;z-index:30">
+      <div class="logo-frame" style="width:110px"><img src="/logo.png" style="width:100%;border-radius:6px;display:block"></div>
+      <button id="menuBtn" class="btn-line">Menu</button>
+    </header>
+    <aside id="side" class="panel" style="width:280px;min-height:100vh;padding:1.3rem;display:flex;flex-direction:column;gap:1.4rem;border-radius:0;border-left:none;border-top:none;border-bottom:none">
+      <div class="logo-frame" style="width:100%"><img src="/logo.png" style="width:100%;border-radius:8px;display:block"></div>
+      <div><p class="brand gold-text" style="font-size:1.3rem;font-weight:700;margin:0;line-height:1.2">MANKKDEV<br>Control Panel V1</p><p id="who" style="font-size:.75rem;color:#8f8567;margin-top:.5rem"></p></div>
+      <nav id="nav" style="display:flex;flex-direction:column;gap:.3rem"></nav>
+      <button id="logout" class="btn-line" style="margin-top:auto">Keluar</button>
+    </aside>
+    <main style="flex:1;padding:2rem;max-width:1100px;margin:0 auto;width:100%"><div id="view"></div></main>
+  </div>
+</div>
+
+<div id="modal" class="hidden" style="position:fixed;inset:0;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;padding:1rem;z-index:50">
+  <div class="panel" style="max-width:420px;width:100%;padding:1.5rem;display:flex;flex-direction:column;gap:1rem">
+    <h3 id="mTitle" class="brand gold-text" style="font-size:1.5rem;font-weight:700;margin:0"></h3>
+    <p id="mText" style="color:#cfc5a6;margin:0"></p>
+    <div style="display:flex;gap:.7rem;justify-content:flex-end">
+      <button id="mNo" class="btn-line">Batal</button>
+      <button id="mYes" class="btn-gold">Ya, lanjutkan</button>
+    </div>
+  </div>
+</div>
+<div id="toast" class="hidden panel" style="position:fixed;bottom:1.2rem;right:1.2rem;padding:.8rem 1rem;font-size:.9rem;max-width:280px;z-index:50"></div>
+
+<script src="/assets/app.js"></script>
+<script src="/admin.js"></script>
+</body>
+</html>
